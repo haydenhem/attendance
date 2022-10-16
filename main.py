@@ -80,7 +80,7 @@ gaming = input("Would you like to input a classcode? (Y/N) ")
 if any(gaming.lower() == f for f in ["yes", 'y', '1', 'ye']):
     troll = input("Please paste it now: ") # Class codes are formated like: "CLASSNAME,NAME,NAME,NAME" than encrypted for looks, legit would work without but it looks cooler this way
     pogaming = seperatetext(base64.b64decode(troll.encode("ASCII")).decode("ASCII"), ",") # This took me way too long for 1 line, Essentially when you need to encode or decode a b64 string in python you have to encode it to bytes than decode it than conver those bytes to a string.
-    if else pogaming[0] in os.listdir("H://Classes"):
+    if not pogaming[0] in os.listdir("H://Classes"):
         os.mkdir("H://Classes/" + pogaming[0]) # Make the class file if it doesnt exist, they just allows you to overwrite classes
     f = open("H://Classes/" + pogaming[0] + "/people.txt", "w")
     f.write(','.join(pogaming[:0] + pogaming[0 + 1:])) # Adds every item in the list except the first item (Removes the classname from the students list)
